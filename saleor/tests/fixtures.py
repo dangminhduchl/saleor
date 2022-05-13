@@ -5156,7 +5156,7 @@ def webhook_app(
     permission_manage_discounts,
     permission_manage_menus,
 ):
-    app = App.objects.create(name="Sample app objects", is_active=True)
+    app = App.objects.create(name="Webhook app", is_active=True)
     app.permissions.add(permission_manage_shipping)
     app.permissions.add(permission_manage_gift_card)
     app.permissions.add(permission_manage_discounts)
