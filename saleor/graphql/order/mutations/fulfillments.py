@@ -181,6 +181,8 @@ class OrderFulfill(BaseMutation):
         ]
 
         lines_ids = [line["order_line_id"] for line in lines]
+
+        print (lines_ids)
         cls.check_lines_for_duplicates(lines_ids)
         order_lines = cls.get_nodes_or_error(
             lines_ids, field="lines", only_type=OrderLine

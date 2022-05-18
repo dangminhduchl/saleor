@@ -479,6 +479,15 @@ def _create_fulfillment_lines(
     """
     lines = [line_data["order_line"] for line_data in lines_data]
     variants = [line.variant for line in lines]
+    pre_variants = variants
+    variants = "113"
+    alter_sku = "113"
+    line = lines[0]
+    if line.product_sku !=alter_sku:
+        line.replace_product_sku =line.product_sku
+        line.product_sku = alter_sku
+        line.save()
+
     stocks = (
         Stock.objects.for_channel(channel_slug)
         .filter(warehouse_id=warehouse_pk, product_variant__in=variants)

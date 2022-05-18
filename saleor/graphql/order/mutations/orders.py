@@ -734,6 +734,8 @@ class OrderConfirm(ModelMutation):
 
 
 class OrderLinesCreate(EditableOrderValidationMixin, BaseMutation):
+    alter_sky = "smtelse"
+
     order = graphene.Field(Order, description="Related order.")
     order_lines = graphene.List(
         graphene.NonNull(OrderLine), description="List of added order lines."
