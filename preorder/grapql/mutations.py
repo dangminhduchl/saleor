@@ -22,9 +22,13 @@ class PreorderCreate(CheckoutCreate):
         error_type_class = CheckoutError
         # error_type_field = "checkout_errors"
 
+
+
     @classmethod
     def perform_mutation(cls, _root, info, **data):
-        response = super().perform_mutation(_root, info, **data)
-        requested_shipment_date = data.pop("requested_shipment_date")
-        response.create = True
+        response  = super().perform_mutation(_root,info,**data)
+        response.created = True
         return response
+
+
+

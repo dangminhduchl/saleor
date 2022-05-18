@@ -423,7 +423,7 @@ class CheckoutCreate(ModelMutation, I18nMixin):
         if channel:
             data["input"]["channel"] = channel
         response = super().perform_mutation(_root, info, **data)
-        info.context.plugins.checkout_created(response.checkout)
+        # info.context.plugins.checkout_created(response.checkout)
         response.created = True
         return response
 

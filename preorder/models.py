@@ -1,8 +1,8 @@
 from django.db import models
-from saleor.checkout.models import Checkout
+from saleor.order.models import Order
 
 
-class Preorder(Checkout):
+class Preorder(Order):
     requested_shipment_date = models.DateField(blank=True, null=True)
 
     class Meta:
